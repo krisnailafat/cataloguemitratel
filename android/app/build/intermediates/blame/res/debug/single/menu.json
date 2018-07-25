@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/res/merged/debug/menu/search_item.xml",
+        "source": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-navigation/unspecified/res/menu/search_item.xml"
+    },
+    {
+        "merged": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/res/merged/debug/menu/stub.xml",
+        "source": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-navigation/unspecified/res/menu/stub.xml"
+    }
+]
