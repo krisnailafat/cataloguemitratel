@@ -2,18 +2,67 @@ import { Navigation } from "react-native-navigation";
 import { Provider } from "react-redux";
 import React, { Component } from 'react';
 
-import AuthScreen from "./src/screens/Auth/Auth";
+import Login from "./src/screens/Auth/Login";
+import ForgotPassword from "./src/screens/Auth/ForgotPassword";
+import CreateAccount from "./src/screens/Auth/CreateAccount";
+import MainMenu from "./src/screens/MainMenu/MainMenu";
+import ECatalogue from "./src/screens/MainMenu/ECatalogue";
+import Transaction from "./src/screens/MainMenu/Transaction";
+import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
+import AddProduct from "./src/screens/MainMenu/AddProduct/";
+
 import configureStore from "./src/store/configureStore";
-import AddProduct from "./src/screens/AddProduct/AddProduct";
+
 
 const store = configureStore();
 
 
-
 // Register Screens
 Navigation.registerComponent(
-    "mitratel.AuthScreen",
-    () => AuthScreen,
+    "mitratel.Login",
+    () => Login,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.ForgotPassword",
+    () => ForgotPassword,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.CreateAccount",
+    () => CreateAccount,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.MainMenu",
+    () => MainMenu,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.ECatalogue",
+    () => ECatalogue,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.Transaction",
+    () => Transaction,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.SideDrawer",
+    () => SideDrawer,
     store,
     Provider
 );
@@ -25,35 +74,10 @@ Navigation.registerComponent(
     Provider
 );
 
-
 Navigation.startSingleScreenApp({
     screen: {
         screen: "mitratel.AddProduct",
         title: "Login"
-    }
+    },
+
 });
-
-
-// import React from 'react';
-// import { StyleSheet, Text, View } from 'react-native';
-
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>Open up App.js to start working on your app!</Text>
-//         <Text>Changes you make will automatically reload.</Text>
-//         <Text>Shake your phone to open the developer menu.</Text>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

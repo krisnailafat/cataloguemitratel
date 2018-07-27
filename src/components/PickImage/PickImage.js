@@ -35,7 +35,7 @@ class PickImage extends Component {
           <Image source={this.state.pickedImage} style={styles.previewImage} />
         </View>
         <View style={styles.button}>
-          <Button color="red" title="Choose Picture" onPress={this.pickImageHandler} />
+          <Button title="Upload bukti bayar" onPress={this.pickImageHandler} />
         </View>
       </View>
     );
@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
       height: 150
     },
     button: {
-      margin: 8,
-      // alignSelf: 'flex-end' 
+      margin: 8
     },
     previewImage: {
         width: "100%",
