@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 import AuthScreen from "./src/screens/Auth/Auth";
 import configureStore from "./src/store/configureStore";
-
+import AddProduct from "./src/screens/AddProduct/AddProduct";
 
 const store = configureStore();
 
@@ -18,10 +18,17 @@ Navigation.registerComponent(
     Provider
 );
 
+Navigation.registerComponent(
+    "mitratel.AddProduct",
+    () => AddProduct,
+    store,
+    Provider
+);
+
 
 Navigation.startSingleScreenApp({
     screen: {
-        screen: "mitratel.AuthScreen",
+        screen: "mitratel.AddProduct",
         title: "Login"
     }
 });

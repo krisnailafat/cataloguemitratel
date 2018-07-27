@@ -18,9 +18,18 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "material-ui": "^0.20.1",
+    "native-base": "^2.4.5",
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-elements": "^0.19.1",
+    "react-native-image-picker": "^0.26.7",
+    "react-native-material-dropdown": "^0.11.1",
     "react-native-navigation": "^1.1.277",
+    "react-native-parallax-scroll": "^1.0.3",
+    "react-native-parallax-scroll-view": "^0.21.0",
+    "react-native-parallax-scrollview": "^2.0.0",
     "react-native-vector-icons": "^4.6.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
