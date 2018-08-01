@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/splash.png",
+        "source": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/res/mipmap-hdpi/splash.png"
+    },
+    {
         "merged": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
         "source": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     }

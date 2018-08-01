@@ -1,5 +1,6 @@
 /**
  * Created by mata on 7/27/18.
+ * Edited by kr on 7/30/18.
  */
 
 import React, { Component } from "react";
@@ -34,6 +35,13 @@ class AddProduct extends Component {
         ScopeOfWorkDetail: '',
         Mitra: '',
         Unspsc: '',
+        Status:'',
+        Unit:'',
+        RetailPrice:'',
+        GovermentPrice:'',
+        DeliveryPrice:'',
+        Notes:'',
+        Description:''
     }
 
     render() {
@@ -68,6 +76,7 @@ class AddProduct extends Component {
                             inputStyle={{ borderWidth: 0 }}
                             style={styles.formInput}
                             value={this.state.number}
+                            keyboardType="numeric"
                             //onBlur={this.onBlur}
                             // password
                             onChangeText={(text) => this.setState({ number: text })}
@@ -81,7 +90,9 @@ class AddProduct extends Component {
                             style={{ marginTop: 16, color: '#3324B7'}}
                             onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
                             <Picker.Item label="Scope Of Work" value="SOW" />
-                            <Picker.Item label="JavaScript" value="js" />
+                            <Picker.Item label="Category 1" value="c1" />
+                            <Picker.Item label="Category 2" value="c2" />
+                            <Picker.Item label="Category 3" value="c3" />
                         </Picker>
                     </View>
                     <View style={{ width: "90%" }}>
@@ -196,13 +207,15 @@ class AddProduct extends Component {
                             style={{ width: "45%", marginTop: 16 , color: '#3324B7'}}
                             onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
                             <Picker.Item label="Currency" value="currency" />
-                            <Picker.Item label="JavaScript" value="js" />
+                            <Picker.Item label="IDR" value="idr" />
+                            <Picker.Item label="USD" value="usd" />
                         </Picker>
                         <FloatingLabel
                             labelStyle={{ color: '#3324B7' }}
                             inputStyle={{ borderWidth: 0 }}
                             style={[styles.formInput, { width: "45%", }]}
                             value={this.state.unit}
+                            keyboardType="numeric"
                             //onBlur={this.onBlur}
                             // password
                             onChangeText={(text) => this.setState({ unit: text })}
@@ -218,6 +231,7 @@ class AddProduct extends Component {
                             value={this.state.retailPrice}
                             //onBlur={this.onBlur}
                             // password
+                            keyboardType="numeric"
                             onChangeText={(text) => this.setState({ retailPrice: text })}
                         >
                             Retail Price
@@ -231,6 +245,7 @@ class AddProduct extends Component {
                             value={this.state.govermentPrice}
                             //onBlur={this.onBlur}
                             // password
+                            keyboardType="numeric"
                             onChangeText={(text) => this.setState({ govermentPrice: text })}
                         >
                             Goverment Price
@@ -244,6 +259,7 @@ class AddProduct extends Component {
                             value={this.state.deliveryPrice}
                             //onBlur={this.onBlur}
                             // password
+                            keyboardType="numeric"
                             onChangeText={(text) => this.setState({ deliveryPrice: text })}
                         >
                             Delivery Price

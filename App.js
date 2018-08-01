@@ -77,7 +77,7 @@ Navigation.registerComponent(
 Navigation.startSingleScreenApp({
     screen: {
         screen: "mitratel.AddProduct",
-        title: "Login"
+        title: "Add Product"
     },
 
 });

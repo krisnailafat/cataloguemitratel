@@ -88,7 +88,7 @@ class CreateAccount extends Component {
                 <View  style={{paddingTop:40, alignItems:'center'}}>
                     <TouchableOpacity onPress={() => {}}>
                         <View style={{borderRadius: 5, paddingVertical:10,paddingHorizontal:40, backgroundColor:'#ce0b24'}}>
-                            <Text style={{paddingHorizontal:10, fontWeight:'bold', fontSize:16,color:'white'}}>Reset Password</Text>
+                            <Text style={{paddingHorizontal:10, fontWeight:'bold', fontSize:16,color:'white'}}>Create Account</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
