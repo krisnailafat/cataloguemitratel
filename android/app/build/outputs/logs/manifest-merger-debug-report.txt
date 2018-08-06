@@ -24,6 +24,7 @@ MERGED from [com.facebook.react:react-native:0.55.4] /Users/krisnailafat/mitrate
 		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:5:22-75
 application
 ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:7:5-24:19
+MERGED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:11:5-21:19
 MERGED from [mitratel:react-native-navigation:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-navigation/unspecified/AndroidManifest.xml:11:5-18:19
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/com.aurelhubert/ahbottomnavigation/2.0.6/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:25.3.1] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/AndroidManifest.xml:29:5-20
@@ -81,6 +82,7 @@ MERGED from [mitratel:react-native-navigation:unspecified] /Users/krisnailafat/m
 		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:23:17-81
 uses-sdk
 INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [mitratel:react-native-navigation:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-navigation/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/com.aurelhubert/ahbottomnavigation/2.0.6/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.3.1] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/AndroidManifest.xml:21:5-23:62
@@ -115,6 +117,22 @@ MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/krisnailafat/mitratel/
 	android:minSdkVersion
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
+provider#com.imagepicker.FileProvider
+ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:12:9-20:20
+	android:authorities
+		ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:14:13-60
+	android:grantUriPermissions
+		ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:16:13-47
+	android:exported
+		ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:13:13-56
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:17:13-19:58
+	android:resource
+		ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:19:17-55
+	android:name
+		ADDED from [mitratel:react-native-image-picker:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/AndroidManifest.xml:18:17-67
 activity#com.reactnativenavigation.controllers.NavigationActivity
 ADDED from [mitratel:react-native-navigation:unspecified] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-navigation/unspecified/AndroidManifest.xml:12:9-14:86
 	android:configChanges

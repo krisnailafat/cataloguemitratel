@@ -237,6 +237,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/exploded-aar/mitratel/react-native-image-picker/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="beca3a29d7f67ed2242e46811ce303ec5417bb39">
+        <dex dex="/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/pre-dexed/debug/mitratel-react-native-image-picker-unspecified_500164576db550c6182eb62826427b2216e3de52.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/private/var/root/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="false"
         optimize="true"

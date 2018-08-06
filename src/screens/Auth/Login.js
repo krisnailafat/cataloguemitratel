@@ -60,12 +60,12 @@ class Login extends Component {
         console.log('handler login')
         const CustomButton = ({ text }) =>
             <TouchableOpacity
-                style={[styles.button, { backgroundColor: 'tomato' }]}
+                style={{backgroundColor: 'green' }}
                 onPress={() => console.log('pressed me!')}
             >
-                <View style={styles.button}>
+                <View >
                     <Text style={{ color: 'white' }}>
-                        {text}
+                        SEARCH
                     </Text>
                 </View>
             </TouchableOpacity>;
@@ -97,9 +97,9 @@ class Login extends Component {
                             rightButtons: [
                                 {
                                     id: 'custom-button',
-                                    icon: sources[3],
+                                    //icon: sources[3],
                                     title: "Add Produk",
-                                    //component: 'CustomButton', // This line loads our component as a nav bar button item
+                                    component: 'CustomButton', // This line loads our component as a nav bar button item
                                     // passProps: {
                                     //     text: 'Add',
                                     // },

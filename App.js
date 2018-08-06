@@ -5,12 +5,12 @@ import React, { Component } from 'react';
 import Login from "./src/screens/Auth/Login";
 import ForgotPassword from "./src/screens/Auth/ForgotPassword";
 import CreateAccount from "./src/screens/Auth/CreateAccount";
-import MainMenu from "./src/screens/MainMenu/MainMenu";
 import ECatalogue from "./src/screens/MainMenu/ECatalogue";
 import Transaction from "./src/screens/MainMenu/Transaction";
+import DetailProduct from "./src/screens/MainMenu/DetailProduct";
+import SearchCategory from "./src/screens/MainMenu/SearchCategory";
+import AddProduct from "./src/screens/MainMenu/AddProduct";
 import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
-import AddProduct from "./src/screens/MainMenu/AddProduct/";
-
 import configureStore from "./src/store/configureStore";
 
 
@@ -40,13 +40,6 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
-    "mitratel.MainMenu",
-    () => MainMenu,
-    store,
-    Provider
-);
-
-Navigation.registerComponent(
     "mitratel.ECatalogue",
     () => ECatalogue,
     store,
@@ -68,6 +61,20 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
+    "mitratel.SearchCategory",
+    () => SearchCategory,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
+    "mitratel.DetailProduct",
+    () => DetailProduct,
+    store,
+    Provider
+);
+
+Navigation.registerComponent(
     "mitratel.AddProduct",
     () => AddProduct,
     store,
@@ -76,8 +83,8 @@ Navigation.registerComponent(
 
 Navigation.startSingleScreenApp({
     screen: {
-        screen: "mitratel.AddProduct",
-        title: "Add Product"
+        screen: "mitratel.Login",
+        title: "Login"
     },
 
 });
