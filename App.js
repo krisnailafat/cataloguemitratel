@@ -81,6 +81,12 @@ Navigation.registerComponent(
     Provider
 );
 
+// Navigation.startSingleScreenApp({
+//     screen: {
+//         screen: "mitratel.DetailProduct",
+//         title: "DetailProduct"
+//     },
+
 Navigation.startSingleScreenApp({
     screen: {
         screen: "mitratel.Login",
