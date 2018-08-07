@@ -12,22 +12,26 @@ import {
     TouchableOpacity,
     TouchableHighlight,
     Button,
-    FlatList
+    FlatList,
+    ScrollView,
+    Picker
 } from "react-native";
 import { connect } from "react-redux";
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import DefaultInput from "../../components/UI/DefaultInput/DefaultInput";
+import ProductList from "../../components/ProductList/ProductList";
 
 class Transaction extends Component {
     static navigatorStyle = {
-        navBarTextColor:'white',
-        navBarBackgroundColor:'#ce0b24',
-        navBarButtonColor:'white',
-        navBarHidden:true
+        navBarTextColor: 'white',
+        navBarBackgroundColor: '#ce0b24',
+        navBarButtonColor: 'white',
+        navBarHidden: true
     };
 
     state = {
+        purchases:{}
     }
 
     constructor(props) {
@@ -41,17 +45,36 @@ class Transaction extends Component {
         });
     };
 
-    onHandlerAddProduk= () => {
+    onHandlerAddProduk = () => {
         this.props.navigator.push({
             screen: "mitratel.AddProduct",
             title: "Add Product",
         });
     }
 
-    render(){
-        return(
-            <View style={{flex:1 }}>
-                <View style={{paddingHorizontal:20, height:60, width:'100%', backgroundColor:'#ce0b24',flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+
+    componentWillMount() {
+        let url = "http://198.23.246.133:8283/api/purchase/";
+        fetch(url)
+            .catch(err => {
+                console.log(err);
+                alert("Error accessing mitratel server");
+                //dispatch(uiStopLoading());
+            })
+            .then(res => res.json())
+            .then(parsedRes => {
+                //dispatch(uiStopLoading());
+                // console.log('product: ', parsedRes);
+                this.setState({ purchases: parsedRes })
+            });
+    }
+
+   
+
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <View style={{ paddingHorizontal: 20, height: 60, width: '100%', backgroundColor: '#ce0b24', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                     <TouchableOpacity onPress={this.OnDrawerClicked}>
                         <Icon
                             name={"md-menu"}
@@ -59,8 +82,8 @@ class Transaction extends Component {
                             color="white"
                         />
                     </TouchableOpacity>
-                    <View style={{flexDirection:'row',justifyContent:'center', alignItems:'center'}}>
-                        <View style={{height:30, width:30, backgroundColor:'white',justifyContent:'center', alignItems:'center'}}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ height: 30, width: 30, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' }}>
                             <Icon
                                 name={"ios-search-outline"}
                                 size={20}
@@ -69,9 +92,9 @@ class Transaction extends Component {
                         </View>
                         <DefaultInput
                             placeholder="Search"
-                            style={{borderColor:'white',height:30,width:160, backgroundColor:'white'}}
+                            style={{ borderColor: 'white', height: 30, width: 160, backgroundColor: 'white' }}
                             value={this.state.nama}
-                            onChangeText={val => this.setState({search: val})}
+                            onChangeText={val => this.setState({ search: val })}
                             //valid={this.state.controls.email.valid}
                             //touched={this.state.controls.email.touched}
                             autoCapitalize="none"
@@ -87,72 +110,43 @@ class Transaction extends Component {
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={{paddingVertical:10,flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
+                <View style={{ paddingVertical: 4, flexDirection: 'row', alignItems: 'center', marginLeft: 10 }}>
+                    {/* <View style={{ flexDirection: 'row' }}> */}
+                    {/* <TouchableOpacity onPress={this.onNavigatorEvent}> */}
                     <View>
-                        <TouchableOpacity onPress={this.onNavigatorEvent}>
-                            <View  style={{width:90,alignItems:'center'}}>
-                                <Icon
-                                    name={"md-time"}
-                                    size={20}
-                                    color="#490E14"
-                                />
-                                <Text>Negotiation</Text>
-                            </View>
-                        </TouchableOpacity>
+                        <Text style={{ fontWeight: 'bold' }}>Show </Text>
+                    </View>
+                    <View style={{ borderRadius: 4, borderWidth: 0.5, borderColor: '#d6d7da' }}>
+                        <Picker
+                            selectedValue={this.state.count}
+                            style={{ width: 100, color: '#3324B7' }}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ count: itemValue })}>
+                            <Picker.Item label="10" value="10" />
+                            <Picker.Item label="25" value="25" />
+                            <Picker.Item label="50" value="50" />
+                        </Picker>
+                    </View>
+                    <View>
+                        <Text style={{ fontWeight: 'bold' }}> entries</Text>
+                    </View>
+                    {/* </TouchableOpacity> */}
 
-                    </View>
-                    <View>
-                        <TouchableOpacity onPress={() => {}}>
-                            <View  style={{width:90,alignItems:'center'}}>
-                                <Icon
-                                    name={"ios-checkmark-circle-outline"}
-                                    size={20}
-                                    color="#490E14"
-                                />
-                                <Text>Deal</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View>
-                        <TouchableOpacity onPress={() => {}}>
-                            <View  style={{width:90,alignItems:'center'}}>
-                                <Icon
-                                    name={"ios-close-circle-outline"}
-                                    size={20}
-                                    color="#490E14"
-                                />
-                                <Text>Reject</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+                    {/* </View> */}
                 </View>
-                <View style={{flex:1, paddingTop:10,  backgroundColor:'#dddddd'}}>
-                    {/*<FlatList*/}
-                        {/*style={styles.listContainer}*/}
-                        {/*data={props.tours}*/}
-                        {/*keyExtractor={(item, index) => index}*/}
-                        {/*renderItem={(info) =>*/}
-                            {/*(*/}
-                                {/*<ListItem*/}
-                                    {/*tourName={info.item.name}*/}
-                                    {/*tourImage={info.item.images}*/}
-                                    {/*day={info.item.day_duration}*/}
-                                    {/*night={info.item.night_duration}*/}
-                                    {/*price_adult={info.item.price_adult}*/}
-                                    {/*currency = {info.item.currency}*/}
-                                    {/*onItemPressed={() => props.onItemSelected(info.item)}*/}
-                                {/*/>*/}
-                            {/*)}*/}
-                    {/*/>*/}
-                    <Text>Hello Transaction</Text>
-                </View>
+                <View>
+                <ProductList
+                    purchases={this.state.purchases}
+                    // onItemSelected={' '}
+                />
+
+            </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-
+    
 })
 
 export default connect(null, null)(Transaction);
