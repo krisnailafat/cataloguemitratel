@@ -35,7 +35,7 @@ const listItem = props => {
                                 fontWeight: 'bold',
                                 paddingVertical: 5,
                                 paddingHorizontal: 10,
-                                backgroundColor: '#490E14',
+                                backgroundColor: '#ce0b24',
                                 color: 'white'
                             }}>LIHAT DETAIL</Text>
                         </View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:5,
         backgroundColor: "#e5e5e5",
         flexDirection: "column",
-        borderRadius: 5,
+        borderRadius: 2,
         borderWidth:0.5,
         borderColor:'#64081e',
         shadowColor: '#64081e',

@@ -4,7 +4,7 @@
             "outputFile": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/6dda9c5eccf6ca16367ea536b5dfc3fe/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/9c109e0a48da94151af3c2b8d15e8f8d/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -1,4 +1,4 @@
-import { Navigation } from "react-native-navigation";
+import { Navigation } from "react-native-navigation";//kr
 import { Provider } from "react-redux";
 import React, { Component } from 'react';
 

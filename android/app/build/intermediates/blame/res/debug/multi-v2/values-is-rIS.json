@@ -4,7 +4,7 @@
             "outputFile": "/Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is-rIS/values-is-rIS.xml",
             "map": [
                 {
-                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/6dda9c5eccf6ca16367ea536b5dfc3fe/res/values-is-rIS/values-is-rIS.xml",
+                    "source": "/private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/9c109e0a48da94151af3c2b8d15e8f8d/res/values-is-rIS/values-is-rIS.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
