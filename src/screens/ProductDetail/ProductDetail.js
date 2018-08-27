@@ -91,7 +91,7 @@ class ProductDetail extends Component {
     // }
 
     render() {
-        
+        // console.log('this props detail:', this.props.tourcontent.images)
         // let price = (
         //     <Text>IDR</Text>
         // )

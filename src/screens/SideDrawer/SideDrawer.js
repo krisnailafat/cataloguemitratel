@@ -35,12 +35,50 @@ class SideDrawer extends Component {
             })
     }
 
-    gotoHome() {
+    gotoHome = () =>  {
+        Promise.all([
+            Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30),
+            Icon.getImageSource("ios-list-box-outline", 30),
+            Icon.getImageSource("ios-cash", 30),
+            Icon.getImageSource("ios-add-circle", 30)
+        ]).then(sources => {
+            Navigation.startTabBasedApp({
+                tabs: [
+                    {
+                        label: 'E-Catalogue',
+                        screen: 'mitratel.ECatalogue', // this is a registered name for a screen
+                        icon: sources[1],
+                        //selectedIcon: require('../img/one_selected.png'), // iOS only
+                        title: 'ECatalogue',
+
+                    },
+                    {
+                        label: 'Transaction',
+                        screen: 'mitratel.Transaction',
+                        icon:  sources[2],
+                        //selectedIcon: require('../img/two_selected.png'), // iOS only
+                        title: 'Transaction',
+                    }
+                ],
+                drawer: {
+                    left: {
+                        screen: "mitratel.SideDrawer"
+                    }
+                },
+            });
+        })
+    }
+
+    signOut(){
+        AsyncStorage.removeItem("app:auth:token");
+        AsyncStorage.removeItem("app:auth:csrftoken");
+
         Navigation.startSingleScreenApp({
             screen: {
-                screen: "cheria-holidays.AuthScreen",
+                screen: "mitratel.Login",
                 title: "Login"
-            }
+            },
+
         });
     }
 
@@ -60,7 +98,7 @@ class SideDrawer extends Component {
                 />
 
                 <View style={styles.listOnDrawer}>
-                    <TouchableOpacity onPress={() => {}}>
+                    <TouchableOpacity onPress={this.gotoHome}>
                         <View style={styles.drawerItem2}>
                             <View  style={{width:45}}>
                                 <Icon
@@ -105,7 +143,7 @@ class SideDrawer extends Component {
                             </View>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {}}>
+                    <TouchableOpacity onPress={this.signOut}>
                         <View style={styles.drawerItem2}>
                             <View style={{width:45}}>
                                 <Icon

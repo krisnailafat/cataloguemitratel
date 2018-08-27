@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, Button, StyleSheet } from "react-native";
+import { View, Image, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
 import ImagePicker from "react-native-image-picker";
 
 class PickImage extends Component {
@@ -14,7 +14,7 @@ class PickImage extends Component {
   }
 
   pickImageHandler = () => {
-    ImagePicker.showImagePicker({title: "Pick an Image", maxWidth: 800, maxHeight: 600}, res => {
+    ImagePicker.showImagePicker({ title: "Pick an Image", maxWidth: 800, maxHeight: 600 }, res => {
       if (res.didCancel) {
         console.log("User cancelled!");
       } else if (res.error) {
@@ -23,7 +23,7 @@ class PickImage extends Component {
         this.setState({
           pickedImage: { uri: res.uri }
         });
-        this.props.onImagePicked({uri: res.uri, base64: res.data});
+        this.props.onImagePicked({ uri: res.uri, base64: res.data });
       }
     });
   }
@@ -34,33 +34,40 @@ class PickImage extends Component {
         <View style={styles.placeholder}>
           <Image source={this.state.pickedImage} style={styles.previewImage} />
         </View>
-        <View style={styles.button}>
-          <Button title="Upload bukti bayar" onPress={this.pickImageHandler} />
+        <View>
+          <TouchableOpacity onPress={this.pickImageHandler}>
+            <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: '#ce0b24', marginTop :8 }}>
+              <Text style={{ paddingHorizontal: 10, fontWeight: 'bold', fontSize: 16, color: 'white' }}>Upload Product</Text>
+            </View>
+          </TouchableOpacity>
         </View>
+        {/* <View style={styles.button}>
+          <Button color ="#ce0b24" title="Upload Gambar" onPress={this.pickImageHandler} />
+        </View> */}
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        width: "100%",
-        alignItems: "center"
-    },
-    placeholder: {
-      borderWidth: 1,
-      borderColor: "black",
-      backgroundColor: "#eee",
-      width: "80%",
-      height: 150
-    },
-    button: {
-      margin: 8
-    },
-    previewImage: {
-        width: "100%",
-        height: "100%"
-    }
-  });
+  container: {
+    width: "100%",
+    alignItems: "center"
+  },
+  placeholder: {
+    borderWidth: 1,
+    borderColor: "black",
+    backgroundColor: "#eee",
+    width: "80%",
+    height: 150
+  },
+  button: {
+    margin: 8,
+  },
+  previewImage: {
+    width: "100%",
+    height: "100%"
+  }
+});
 
 export default PickImage;

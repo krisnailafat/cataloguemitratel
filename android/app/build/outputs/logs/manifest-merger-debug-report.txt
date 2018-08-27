@@ -1,9 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
+INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
+INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
+INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
+MERGED from [:react-native-cookies] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-cookies/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-image-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-20:12
 MERGED from [:react-native-vector-icons] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
@@ -32,20 +33,20 @@ MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/
 MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/3b37c82010559a3679f37b7f59e72e87/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/661f5e9a8abf568a7efd96dca5c0415a/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/0a593ca3be3d4617104caaa776922e33/AndroidManifest.xml:17:1-31:12
-INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
+INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
+INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
 	package
 		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:2:5-27
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12
 		INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:11-69
@@ -59,8 +60,16 @@ MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/c
 MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/ffa7264ef31afdc626305dbee00ed0e1/AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:5:22-75
+uses-permission#android.permission.CAMERA
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:7:5-65
+	android:name
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:7:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:8:5-80
+	android:name
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:8:22-78
 application
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:7:5-24:19
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:10:5-27:19
 MERGED from [:react-native-image-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [:react-native-image-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-18:19
@@ -100,47 +109,49 @@ MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.grad
 MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/0a593ca3be3d4617104caaa776922e33/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/0a593ca3be3d4617104caaa776922e33/AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:9:7-39
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:12:7-39
 	android:icon
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:10:7-41
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:13:7-41
 	android:allowBackup
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:14:7-34
 	android:theme
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:15:7-38
 	android:name
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:8:7-38
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:11:7-38
 activity#com.mitratel.MainActivity
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:13:7-22:18
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:16:7-25:18
 	android:label
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:15:9-41
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:18:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:17:9-51
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:20:9-51
 	android:configChanges
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:16:9-79
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:19:9-79
 	android:name
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:14:9-37
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:17:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:18:9-21:25
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:21:9-24:25
 action#android.intent.action.MAIN
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:19:13-65
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:22:13-65
 	android:name
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:19:21-62
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:22:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:20:13-73
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:23:13-73
 	android:name
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:20:23-70
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:23:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:23:7-84
+ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:26:7-84
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:9-17:40
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:9-17:40
 	android:exported
 		ADDED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:23:17-81
+		ADDED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:26:17-81
 uses-sdk
 INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-cookies] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-cookies/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-cookies] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-cookies/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -257,9 +268,7 @@ MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradl
 		ADDED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/d434dc07df05a5670517d8c60bb91b84/AndroidManifest.xml:27:9-31
 	android:name
 		ADDED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/d434dc07df05a5670517d8c60bb91b84/AndroidManifest.xml:26:9-47
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/krisnailafat/mitratel/cataloguemobile/mitratel/android/app/src/main/AndroidManifest.xml:1:1-29:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

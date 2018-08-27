@@ -14,17 +14,22 @@ import {
     TouchableOpacity,
     TouchableHighlight,
     Button,
-    Platform
+    Platform,
+    Alert,
+    AsyncStorage
 } from "react-native";
 import FloatingLabel from "react-native-floating-labels";
 import { Navigation } from "react-native-navigation";
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import CookieManager from 'react-native-cookies';
+
 class Login extends Component {
 
     state = {
         username:'',
-        password:''
+        password:'',
+        cookies:''
     }
 
     static navigatorStyle = {
@@ -57,92 +62,84 @@ class Login extends Component {
     }
 
     onHandlerLogin = () => {
-        console.log('handler login')
-        const CustomButton = ({ text }) =>
-            <TouchableOpacity
-                style={{backgroundColor: 'green' }}
-                onPress={() => console.log('pressed me!')}
-            >
-                <View >
-                    <Text style={{ color: 'white' }}>
-                        SEARCH
-                    </Text>
-                </View>
-            </TouchableOpacity>;
+        console.log('handler login', this.state.username, this.state.password)
 
-        Navigation.registerComponent('CustomButton', () => CustomButton);
-
-        Promise.all([
-            Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30),
-            Icon.getImageSource("ios-list-box-outline", 30),
-            Icon.getImageSource("ios-cash", 30),
-            Icon.getImageSource("ios-add-circle", 30)
-        ]).then(sources => {
-            Navigation.startTabBasedApp({
-                tabs: [
-                    {
-                        label: 'E-Catalogue',
-                        screen: 'mitratel.ECatalogue', // this is a registered name for a screen
-                        icon: sources[1],
-                        //selectedIcon: require('../img/one_selected.png'), // iOS only
-                        title: 'ECatalogue',
-                        navigatorButtons: {
-                            leftButtons: [
-                                {
-                                    icon: sources[0],
-                                    title: "Menu",
-                                    id: "sideDrawerToggle"
-                                }
-                            ],
-                            rightButtons: [
-                                {
-                                    id: 'custom-button',
-                                    //icon: sources[3],
-                                    title: "Add Produk",
-                                    component: 'CustomButton', // This line loads our component as a nav bar button item
-                                    // passProps: {
-                                    //     text: 'Add',
-                                    // },
-                                }
-                            ],
-                        }
-                    },
-                    {
-                        label: 'Transaction',
-                        screen: 'mitratel.Transaction',
-                        icon:  sources[2],
-                        //selectedIcon: require('../img/two_selected.png'), // iOS only
-                        title: 'Transaction',
-                        navigatorButtons: {
-                            leftButtons: [
-                                {
-                                    icon: sources[0],
-                                    title: "Menu",
-                                    id: "sideDrawerToggle"
-                                }
-                            ],
-                            rightButtons: [
-                                {
-                                    id: 'custom-button',
-                                    icon: sources[3],
-                                    title: "Add Produk",
-                                    //component: 'CustomButton', // This line loads our component as a nav bar button item
-                                    // passProps: {
-                                    //     text: 'Add',
-                                    // },
-                                }
-                            ]
-                        }
-                    }
-                ],
-                drawer: {
-                    left: {
-                        screen: "mitratel.SideDrawer"
-                    }
-                },
+        // let url = "http://198.23.246.133:8283/api/login/";
+        // CookieManager.get('http://198.23.246.133:8283/login/')
+        let url = "http://198.23.246.133:8283/api/dev/login/";
+        CookieManager.get('http://198.23.246.133:8283/dev/login/')
+            .then((res) => {
+                console.log('CookieManager.get =>', res); // => 'user_session=abcdefg; path=/;'
+                AsyncStorage.setItem("app:auth:csrftoken", res.csrftoken);
+                this.setState({cookies:res.csrftoken})
             });
-        })
 
+        fetch(
+            url,
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'same-origin',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': this.state.cookies
+                },
+                // headers: {
+                //     "Content-Type": "application/json",
+                //     //"Authorization": "Token "+this.state.token
+                // },
+                body: JSON.stringify({
+                    email:  "admin3@ciheul.com",  //this.state.username,// "admin@ciheul.com"
+                    password:"admin3 mitratel"  //this.state.password //"admin mitratel"
+                })
+            }
+        ).then(res => res.json())
+            .then(parsedRes => {
+                //dispatch(uiStopLoading());
+                console.log('login get responses: ',parsedRes);
+                if(parsedRes.token != undefined){
+                    AsyncStorage.setItem("app:auth:token", parsedRes.token);
+                    //goto Main Page
+                    Promise.all([
+                        Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30),
+                        Icon.getImageSource("ios-list-box-outline", 30),
+                        Icon.getImageSource("ios-cash", 30),
+                        Icon.getImageSource("ios-add-circle", 30)
+                    ]).then(sources => {
+                        Navigation.startTabBasedApp({
+                            tabs: [
+                                {
+                                    label: 'E-Catalogue',
+                                    screen: 'mitratel.ECatalogue', // this is a registered name for a screen
+                                    icon: sources[1],
+                                    //selectedIcon: require('../img/one_selected.png'), // iOS only
+                                    title: 'ECatalogue',
+
+                                },
+                                {
+                                    label: 'Transaction',
+                                    screen: 'mitratel.Transaction',
+                                    icon:  sources[2],
+                                    //selectedIcon: require('../img/two_selected.png'), // iOS only
+                                    title: 'Transaction',
+                                }
+                            ],
+                            drawer: {
+                                left: {
+                                    screen: "mitratel.SideDrawer"
+                                }
+                            },
+                        });
+                    })
+                }else{
+                    Alert.alert("Login Error", "Kombinasi user & password yang Anda masukan salah")
+                }
+            })
+            .catch((err) => {
+                //console.log('error:', err)
+                Alert.alert("Login Error","Cek Jaringan Anda")
+            });
 
     }
 
