@@ -14,6 +14,7 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativenavigation.NavigationApplication;
 
 import com.imagepicker.ImagePickerPackage;
+import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +34,8 @@ public class MainApplication extends NavigationApplication {
              // eg. new VectorIconsPackage()
               new VectorIconsPackage(),
               new ImagePickerPackage(),
-              new CookieManagerPackage()
+              new CookieManagerPackage(),
+              new ReactNativeDocumentPicker()
          );
      }
 

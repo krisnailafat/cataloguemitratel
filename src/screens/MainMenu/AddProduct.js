@@ -23,6 +23,7 @@ import { connect } from "react-redux";
 import FloatingLabel from "react-native-floating-labels";
 import PickImage from "../../components/PickImage/PickImage";
 import DatePicker from 'react-native-datepicker';
+import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 
 class AddProduct extends Component {
     static navigatorStyle = {
@@ -34,17 +35,24 @@ class AddProduct extends Component {
     state = {
         scopes: "",
         scopedetails: "",
+        name: "",
+        nameImb: "IMB",
         unit: "",
         selectedscopedetail: "",
-        name: "",
         portofolio: "",
         selectedunit: "",
-        nameImb: "IMB",
         isLoading: true,
         area: "",
         selectedarea: "",
         region: "",
-        selectedregion: ""
+        selectedregion: "",
+        provinsi: "",
+        selectedprovinsi: "",
+        kabupaten: "",
+        selectedkabupaten: "",
+        hargaretribusi:"",
+        pickedFile: null,
+        pickedFileName: null
     }
 
     constructor(props) {
@@ -89,6 +97,35 @@ class AddProduct extends Component {
         console.log(this.state.image1)
     };
 
+    pickFileHandler = () => {
+        DocumentPicker.show({
+            filetype: [DocumentPickerUtil.allFiles()],
+        }, (error, res) => {
+            // Android
+            if (res != null) {
+                this.setState({
+                    pickedFile: res.uri
+                });
+                this.setState({
+                    pickedFileName: res.fileName
+                });
+                // console.log(
+                //     res.uri,
+                //     res.type, // mime type
+                //     res.fileName,
+                //     res.fileSize
+                // );
+                console.log(
+                    "ini file :", this.state.pickedFile
+                );
+                console.log(
+                    "ini nama file :", this.state.pickedFileName
+                );
+            }
+        });
+
+    }
+
     render() {
         if (this.state.isLoading) {
             return (
@@ -124,7 +161,7 @@ class AddProduct extends Component {
         if (this.state.unit != "") {
             pickerItemUnit = this.state.unit.map((item, key) => {
                 // console.log("ITEM :", key, item);
-                console.log("this state unit :", this.state.selectedunit);
+                // console.log("this state unit :", this.state.selectedunit);
                 return (
                     //   <Picker.Item key={'d' + dept.id} label={dept.name} value={dept.id} />
                     <Picker.Item label={item.deskripsi} value={item.id} key={key} />
@@ -136,7 +173,7 @@ class AddProduct extends Component {
         if (this.state.area != "") {
             pickerItemArea = this.state.area.map((item, key) => {
                 // console.log("ITEM :", key, item);
-                console.log("this state area :", this.state.selectedarea);
+                // console.log("this state area :", this.state.selectedarea);
                 return (
                     //   <Picker.Item key={'d' + dept.id} label={dept.name} value={dept.id} />
                     <Picker.Item label={item.area} value={item.area} key={key} />
@@ -151,7 +188,31 @@ class AddProduct extends Component {
                 // console.log("this state area :", this.state.selectedregion);
                 return (
                     //   <Picker.Item key={'d' + dept.id} label={dept.name} value={dept.id} />
-                    <Picker.Item label={item.region} value={item.id} key={key} />
+                    <Picker.Item label={item.region} value={item.region} key={key} />
+                )
+            })
+        }
+        //GET PROVINSI 
+        let pickerItemProvinsi = [];
+        if (this.state.provinsi != "") {
+            pickerItemProvinsi = this.state.provinsi.map((item, key) => {
+                // console.log("ITEM :", key, item);
+                // console.log("this state area :", this.state.selectedregion);
+                return (
+                    //   <Picker.Item key={'d' + dept.id} label={dept.name} value={dept.id} />
+                    <Picker.Item label={item.province} value={item.province} key={key} />
+                )
+            })
+        }
+        //GET KABUPATEN 
+        let pickerItemKabupaten = [];
+        if (this.state.kabupaten != "") {
+            pickerItemKabupaten = this.state.kabupaten.map((item, key) => {
+                // console.log("ITEM :", key, item);
+                // console.log("this state area :", this.state.selectedregion);
+                return (
+                    //   <Picker.Item key={'d' + dept.id} label={dept.name} value={dept.id} />
+                    <Picker.Item label={item.name} value={item.id} key={key} />
                 )
             })
         }
@@ -360,6 +421,17 @@ class AddProduct extends Component {
                             onDateChange={(date) => { this.setState({ date: date }) }}
                         />
                     </View>
+                    <View>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15, margin: 8, color: 'black', marginRight: 280 }}>Upload BoQ</Text>
+                    </View>
+                    <View>
+                        <Text style={{ paddingHorizontal: 30, fontWeight: 'bold', fontSize: 16, color: 'black' }}>{this.state.pickedFileName}</Text>
+                        <TouchableOpacity onPress={this.pickFileHandler}>
+                            <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: '#ce0b24', marginTop: 8 }}>
+                                <Text style={{ paddingHorizontal: 10, fontWeight: 'bold', fontSize: 16, color: 'white' }}>Choose File</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                     {/* <View style={{ paddingTop: 20, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 }}>
                         <TouchableOpacity onPress={() => {}}>
                             <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: '#ce0b24' }}>
@@ -427,10 +499,107 @@ class AddProduct extends Component {
                             style={styles.picker}
                             onValueChange={(itemValue, itemIndex) => {
                                 this.setState({ selectedregion: itemValue })
+                                let url = "http://198.23.246.133:8283/api/region?category=Provinsi&&region=" + itemValue;
+                                AsyncStorage.getItem("app:auth:token").then((value) => {
+                                    this.setState({ authToken: value });
+                                })
+                                    .then(res => {
+                                        fetch(url, {
+                                            credentials: 'include',
+                                            method: 'GET',
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                                "Authorization": "Token " + this.state.authToken
+                                            },
+                                        })
+                                            .catch(err => {
+                                                console.log(err);
+                                                //Alert("Error accessing mitratel server");
+                                                this.setState({ errorMessage: err, isLoading: false })
+                                                //dispatch(uiStopLoading());
+                                            })
+                                            .then(res => res.json())
+                                            .then(parsedRes => {
+                                                //dispatch(uiStopLoading());
+                                                console.log('provinsi: ', parsedRes);
+                                                this.setState({ provinsi: parsedRes, isLoading: false })
+                                            });
+
+                                    })
+                                    .catch(err => Alert.alert("Error", err))
                             }}>
                             <Picker.Item label="Semua region" value="null" />
                             {pickerItemRegion}
                         </Picker>
+                    </View>
+                    <View>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15, margin: 8, color: 'black', marginRight: 300 }}>Provinsi</Text>
+                    </View>
+                    <View style={{ paddingBottom: 2, paddingTop: 2, width: "82%" }}>
+                        <Picker
+                            selectedValue={this.state.selectedprovinsi}
+                            style={styles.picker}
+                            onValueChange={(itemValue, itemIndex) => {
+                                this.setState({ selectedprovinsi: itemValue })
+                                let url = "http://198.23.246.133:8283/api/region?category=Kabupaten&&province=" + itemValue;
+                                AsyncStorage.getItem("app:auth:token").then((value) => {
+                                    this.setState({ authToken: value });
+                                })
+                                    .then(res => {
+                                        fetch(url, {
+                                            credentials: 'include',
+                                            method: 'GET',
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                                "Authorization": "Token " + this.state.authToken
+                                            },
+                                        })
+                                            .catch(err => {
+                                                console.log(err);
+                                                //Alert("Error accessing mitratel server");
+                                                this.setState({ errorMessage: err, isLoading: false })
+                                                //dispatch(uiStopLoading());
+                                            })
+                                            .then(res => res.json())
+                                            .then(parsedRes => {
+                                                //dispatch(uiStopLoading());
+                                                console.log('Kabupaten: ', parsedRes);
+                                                this.setState({ kabupaten: parsedRes, isLoading: false })
+                                            });
+
+                                    })
+                                    .catch(err => Alert.alert("Error", err))
+                            }}>
+                            <Picker.Item label="Semua Provinsi" value="null" />
+                            {pickerItemProvinsi}
+                        </Picker>
+                    </View>
+                    <View>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15, margin: 8, color: 'black', marginRight: 260 }}>Kota/Provinsi</Text>
+                    </View>
+                    <View style={{ paddingBottom: 2, paddingTop: 2, width: "82%" }}>
+                        <Picker
+                            selectedValue={this.state.selectedkabupaten}
+                            style={styles.picker}
+                            onValueChange={(itemValue, itemIndex) => {
+                                this.setState({ selectedkabupaten: itemValue })
+                            }}>
+                            <Picker.Item label="Semua Provinsi" value="null" />
+                            {pickerItemKabupaten}
+                        </Picker>
+                    </View>
+                    <View style={this.state.selectedscopedetail != 49 ? { display: 'none' } : { width: "90%" }}>
+                        <FloatingLabel
+                            labelStyle={{ color: '#3324B7' }}
+                            inputStyle={{ borderWidth: 0 }}
+                            style={styles.formInput}
+                            value={this.state.hargaretribusi}
+                            //onBlur={this.onBlur}
+                            keyboardType="numeric"
+                            onChangeText={(text) => this.setState({ hargaretribusi: text })}
+                        >
+                            Harga Retribusi IMB
+                        </FloatingLabel>
                     </View>
                 </View>
 

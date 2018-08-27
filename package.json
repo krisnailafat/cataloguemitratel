@@ -23,6 +23,7 @@
     "react-native": "~0.55.2",
     "react-native-cookies": "^3.3.0",
     "react-native-datepicker": "^1.7.2",
+    "react-native-document-picker": "^2.1.0",
     "react-native-floating-labels": "^1.1.8",
     "react-native-image-picker": "^0.26.7",
     "react-native-modal": "^6.5.0",

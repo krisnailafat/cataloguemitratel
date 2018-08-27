@@ -8,6 +8,7 @@ MERGED from [:react-native-cookies] /Users/krisnailafat/mitratel/cataloguemobile
 MERGED from [:react-native-image-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-20:12
 MERGED from [:react-native-vector-icons] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-document-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-document-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/ffa7264ef31afdc626305dbee00ed0e1/AndroidManifest.xml:2:1-15:12
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/55e904e009e9dfac4497ab42d9d53c37/AndroidManifest.xml:2:1-14:12
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /private/var/root/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/b4b5392c6744e6709cd5157422a5375f/AndroidManifest.xml:2:1-13:12
@@ -158,6 +159,8 @@ MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemob
 MERGED from [:react-native-navigation] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-document-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-document-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-document-picker] /Users/krisnailafat/mitratel/cataloguemobile/mitratel/node_modules/react-native-document-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/ffa7264ef31afdc626305dbee00ed0e1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/ffa7264ef31afdc626305dbee00ed0e1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/55e904e009e9dfac4497ab42d9d53c37/AndroidManifest.xml:8:5-10:41
