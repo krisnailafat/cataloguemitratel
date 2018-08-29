@@ -5,5 +5,7 @@
     <mapping directory="$PROJECT_DIR$/../node_modules/react-native-cookies/android" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../node_modules/react-native-document-picker/android" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../node_modules/react-native-image-picker/android" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../node_modules/react-native-text-input-mask/android/src/main/java" vcs="svn" />
+    <mapping directory="/usr/local/lib/node_modules/react-native-text-input-mask/android" vcs="svn" />
   </component>
 </project>

@@ -25,6 +25,7 @@ import PickImage from "../../components/PickImage/PickImage";
 import DatePicker from 'react-native-datepicker';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 
+
 class AddProduct extends Component {
     static navigatorStyle = {
         navBarTextColor: 'white',
@@ -36,7 +37,9 @@ class AddProduct extends Component {
         scopes: "",
         scopedetails: "",
         name: "",
+        description: "",
         nameImb: "IMB",
+        tgl_exp: new Date().toISOString().slice(0, 10),
         unit: "",
         selectedscopedetail: "",
         portofolio: "",
@@ -50,9 +53,13 @@ class AddProduct extends Component {
         selectedprovinsi: "",
         kabupaten: "",
         selectedkabupaten: "",
-        hargaretribusi:"",
+        hargaretribusi: '',
+        hargajasa: '',
+        hargatotal: '',
+        sumhargatotal: "",
         pickedFile: null,
-        pickedFileName: null
+        pickedFileName: null,
+        mitra:1
     }
 
     constructor(props) {
@@ -92,6 +99,56 @@ class AddProduct extends Component {
 
     }
 
+    onRequestHandler = () => {
+        console.log('request data for', this.state);
+
+        AsyncStorage.getItem("ap:auth:token").then((value) => {
+            this.setState({ "token": value });
+        })
+            .then(res => {
+                console.log('token:', this.state.token)
+                fetch(
+                    "http://198.23.246.133:8283/api/productdetail/",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Token " + this.state.token
+                        },
+                        body: JSON.stringify({
+                            name: this.state.name,
+                            description: this.state.description,
+                            expired_date: this.state.tgl_exp,
+                            scope:this.state.portofolio,
+                            scope_detail:this.state.selectedscopedetail,
+                            mitra:this.state.mitra,
+                            unit:this.state.selectedunit
+                        })
+                    }
+                ).then(() => {
+                    Alert.alert(
+                        'Sukses',
+                        [
+                            { text: 'OK', onPress: () => this.onHandlerEcatalogue() },
+                        ],
+                        { cancelable: false }
+                    )
+
+                    //alert("Inquiry Tour Sukses.\nKami akan & memfollowup permintaan Anda.")
+                    //startMainTabs();
+                }
+                )
+                    .catch(err => alert("error.\nPastikan semua data terisi lengkap!"));
+            });
+    }
+
+    onHandlerEcatalogue = () => {
+        this.props.navigator.push({
+            screen: "mitratel.ECatalogue",
+            title: "ECatalogue",
+        });
+    }
+
     imagePickedHandler1 = image => {
         this.setState({ image1: image })
         console.log(this.state.image1)
@@ -123,6 +180,69 @@ class AddProduct extends Component {
                 );
             }
         });
+
+    }
+
+    renderHarga() {
+        if (this.state.selectedscopedetail != 49) {
+            return (
+                <View style={{ width: "90%" }}>
+                    <FloatingLabel
+                        labelStyle={{ color: '#3324B7' }}
+                        inputStyle={{ borderWidth: 0 }}
+                        style={styles.formInput}
+                        value={this.state.hargatotal.toString()}
+                        //onBlur={this.onBlur}
+                        keyboardType="numeric"
+                        // onChangeText={val => this.setState({ hargatotal: val.replace(/[^0-9\.]+/g, '') })}
+                        // onChangeText={val => this.setState({ hargatotal: parseInt(val) || 0 })}
+                        onChangeText={(val) => this.setState({ hargatotal: val })}
+                    >
+                        Harga Total
+                    </FloatingLabel>
+                </View>
+            )
+
+        }
+        else {
+            return (
+                <View style={{ width: "90%" }}>
+                    <FloatingLabel
+                        labelStyle={{ color: '#3324B7' }}
+                        inputStyle={{ borderWidth: 0 }}
+                        style={styles.formInput}
+                        value={this.state.hargaretribusi}
+                        //onBlur={this.onBlur}
+                        keyboardType="numeric"
+                        onChangeText={(val) => {
+                            this.setState({ hargaretribusi: val.replace(/[^0-9\.]+/g, '') })
+                            let a = "";
+                            a = Number(val) + Number(this.state.hargajasa);
+                            this.setState({ hargatotal: a })
+                        }}
+                    >
+                        Harga Retribusi
+                    </FloatingLabel>
+                    <FloatingLabel
+                        labelStyle={{ color: '#3324B7' }}
+                        inputStyle={{ borderWidth: 0 }}
+                        style={styles.formInput}
+                        value={this.state.hargajasa}
+                        //onBlur={this.onBlur}
+                        keyboardType="numeric"
+                        onChangeText={(val) => {
+                            this.setState({ hargajasa: val.replace(/[^0-9\.]+/g, '') })
+                            let a = "";
+                            a = Number(this.state.hargaretribusi) + Number(val);
+                            this.setState({ hargatotal: a })
+                        }}
+                    >
+                        Harga jasa
+                    </FloatingLabel>
+                    <Text style={{ fontSize: 20, padding: 8.5, marginTop: 17, color: 'black', borderBottomWidth: 1 }}>Total {this.state.hargatotal}</Text>
+                </View >
+            )
+        }
 
     }
 
@@ -216,7 +336,7 @@ class AddProduct extends Component {
                 )
             })
         }
-
+        // console.log("total harga2: ", this.state.hargatotal);
         return (
             <ScrollView>
                 <View style={{
@@ -398,7 +518,7 @@ class AddProduct extends Component {
                         <Text style={{ width: 130, color: "#3324B7", fontSize: 18, paddingBottom: 10 }}>Expired Date:   </Text>
                         <DatePicker
                             style={{ width: 200 }}
-                            date={this.state.date}
+                            date={this.state.tgl_exp}
                             mode="date"
                             placeholder="select date"
                             format="YYYY-MM-DD"
@@ -418,7 +538,7 @@ class AddProduct extends Component {
                                 }
                                 // ... You can check the source to find the other keys.
                             }}
-                            onDateChange={(date) => { this.setState({ date: date }) }}
+                            onDateChange={val => this.setState({ tgl_exp: val })}
                         />
                     </View>
                     <View>
@@ -432,13 +552,6 @@ class AddProduct extends Component {
                             </View>
                         </TouchableOpacity>
                     </View>
-                    {/* <View style={{ paddingTop: 20, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 }}>
-                        <TouchableOpacity onPress={() => {}}>
-                            <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: '#ce0b24' }}>
-                                <Text style={{ paddingHorizontal: 10, fontWeight: 'bold', fontSize: 16, color: 'white' }}>Next</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View> */}
                 </View>
                 <View style={{
                     flex: 1,
@@ -575,7 +688,7 @@ class AddProduct extends Component {
                         </Picker>
                     </View>
                     <View>
-                        <Text style={{ fontWeight: 'bold', fontSize: 15, margin: 8, color: 'black', marginRight: 260 }}>Kota/Provinsi</Text>
+                        <Text style={{ fontWeight: 'bold', fontSize: 15, margin: 8, color: 'black', marginRight: 270 }}>Kota/Provinsi</Text>
                     </View>
                     <View style={{ paddingBottom: 2, paddingTop: 2, width: "82%" }}>
                         <Picker
@@ -588,22 +701,17 @@ class AddProduct extends Component {
                             {pickerItemKabupaten}
                         </Picker>
                     </View>
-                    <View style={this.state.selectedscopedetail != 49 ? { display: 'none' } : { width: "90%" }}>
-                        <FloatingLabel
-                            labelStyle={{ color: '#3324B7' }}
-                            inputStyle={{ borderWidth: 0 }}
-                            style={styles.formInput}
-                            value={this.state.hargaretribusi}
-                            //onBlur={this.onBlur}
-                            keyboardType="numeric"
-                            onChangeText={(text) => this.setState({ hargaretribusi: text })}
-                        >
-                            Harga Retribusi IMB
-                        </FloatingLabel>
-                    </View>
+                    {this.renderHarga()}
+                </View >
+                <View style={{ paddingTop: 20, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 10 }}>
+                    <TouchableOpacity onPress={this.onRequestHandler}>
+                        <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: '#ce0b24' }}>
+                            <Text style={{ paddingHorizontal: 10, fontWeight: 'bold', fontSize: 16, color: 'white' }}>Submit</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
 
-            </ScrollView>
+            </ScrollView >
         )
     }
 }

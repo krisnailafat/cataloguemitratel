@@ -27,14 +27,14 @@ import CookieManager from 'react-native-cookies';
 class Login extends Component {
 
     state = {
-        username:'',
-        password:'',
-        cookies:''
+        username: '',
+        password: '',
+        cookies: ''
     }
 
     static navigatorStyle = {
-        navBarHidden:true,
-        screenBackgroundColor:'white',
+        navBarHidden: true,
+        screenBackgroundColor: 'white',
     };
     constructor(props) {
         super(props);
@@ -71,7 +71,7 @@ class Login extends Component {
             .then((res) => {
                 console.log('CookieManager.get =>', res); // => 'user_session=abcdefg; path=/;'
                 AsyncStorage.setItem("app:auth:csrftoken", res.csrftoken);
-                this.setState({cookies:res.csrftoken})
+                this.setState({ cookies: res.csrftoken })
             });
 
         fetch(
@@ -90,15 +90,15 @@ class Login extends Component {
                 //     //"Authorization": "Token "+this.state.token
                 // },
                 body: JSON.stringify({
-                    email:  "admin3@ciheul.com",  //this.state.username,// "admin@ciheul.com"
-                    password:"admin3 mitratel"  //this.state.password //"admin mitratel"
+                    email: "mitra@testmitra1.com",  //this.state.username,// "admin@ciheul.com"
+                    password: "testmitra1"  //this.state.password //"admin mitratel"
                 })
             }
         ).then(res => res.json())
             .then(parsedRes => {
                 //dispatch(uiStopLoading());
-                console.log('login get responses: ',parsedRes);
-                if(parsedRes.token != undefined){
+                console.log('login get responses: ', parsedRes);
+                if (parsedRes.token != undefined) {
                     AsyncStorage.setItem("app:auth:token", parsedRes.token);
                     //goto Main Page
                     Promise.all([
@@ -120,7 +120,7 @@ class Login extends Component {
                                 {
                                     label: 'Transaction',
                                     screen: 'mitratel.Transaction',
-                                    icon:  sources[2],
+                                    icon: sources[2],
                                     //selectedIcon: require('../img/two_selected.png'), // iOS only
                                     title: 'Transaction',
                                 }
@@ -132,71 +132,71 @@ class Login extends Component {
                             },
                         });
                     })
-                }else{
+                } else {
                     Alert.alert("Login Error", "Kombinasi user & password yang Anda masukan salah")
                 }
             })
             .catch((err) => {
                 //console.log('error:', err)
-                Alert.alert("Login Error","Cek Jaringan Anda")
+                Alert.alert("Login Error", "Cek Jaringan Anda")
             });
 
     }
 
     render() {
         return (
-            <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>
-                    <Image
-                        resizeMode="cover"
-                        style={{height: 100,width: "90%"}}
-                        source={require('../../assets/login_logo.png')}
-                    />
-                <View style={{paddingTop:20, width:"90%"}}>
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <Image
+                    resizeMode="cover"
+                    style={{ height: 100, width: "90%" }}
+                    source={require('../../assets/login_logo.png')}
+                />
+                <View style={{ paddingTop: 20, width: "90%" }}>
                     <FloatingLabel
-                        labelStyle={{color: '#3324B7'}}
-                        inputStyle={{borderWidth: 0}}
+                        labelStyle={{ color: '#3324B7' }}
+                        inputStyle={{ borderWidth: 0 }}
                         style={styles.formInput}
                         value={this.state.username}
                         onBlur={this.onBlur}
-                        onChangeText = {(text)=> this.setState({username:text})}
+                        onChangeText={(text) => this.setState({ username: text })}
                     >
                         Email
                     </FloatingLabel>
                 </View>
-                <View style={{width:"90%"}}>
+                <View style={{ width: "90%" }}>
                     <FloatingLabel
-                        labelStyle={{color: '#3324B7'}}
-                        inputStyle={{borderWidth: 0}}
+                        labelStyle={{ color: '#3324B7' }}
+                        inputStyle={{ borderWidth: 0 }}
                         style={styles.formInput}
                         value={this.state.password}
                         onBlur={this.onBlur}
                         password
-                        onChangeText = {(text)=> this.setState({password:text})}
+                        onChangeText={(text) => this.setState({ password: text })}
                     >
                         Password
                     </FloatingLabel>
                 </View>
-                <View style={{width:'90%', flexDirection:'column',justifyContent: "flex-end",alignItems: "flex-end",}}>
+                <View style={{ width: '90%', flexDirection: 'column', justifyContent: "flex-end", alignItems: "flex-end", }}>
                     <TouchableOpacity onPress={this.onHandlerForgotPassword}>
                         <Text>Forgot Password ?</Text>
                     </TouchableOpacity>
                 </View>
-                <View  style={{paddingTop:40,alignItems:'center'}}>
+                <View style={{ paddingTop: 40, alignItems: 'center' }}>
                     <TouchableOpacity onPress={this.onHandlerLogin}>
-                        <View style={{borderRadius: 5, paddingVertical:10,paddingHorizontal:40, backgroundColor:'#ce0b24'}}>
-                            <Text style={{paddingHorizontal:10, fontWeight:'bold', fontSize:16,color:'white'}}>LOGIN</Text>
+                        <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: '#ce0b24' }}>
+                            <Text style={{ paddingHorizontal: 10, fontWeight: 'bold', fontSize: 16, color: 'white' }}>LOGIN</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
-                <View  style={{flexDirection:'row', paddingTop:20,alignItems:'center'}}>
-                    <View style={{width:'30%', borderBottomWidth:1}}></View>
-                        <Text> OR </Text>
-                    <View style={{width:'30%', borderBottomWidth:1}}></View>
+                <View style={{ flexDirection: 'row', paddingTop: 20, alignItems: 'center' }}>
+                    <View style={{ width: '30%', borderBottomWidth: 1 }}></View>
+                    <Text> OR </Text>
+                    <View style={{ width: '30%', borderBottomWidth: 1 }}></View>
                 </View>
-                <View  style={{paddingTop:10,alignItems:'center'}}>
+                <View style={{ paddingTop: 10, alignItems: 'center' }}>
                     <TouchableOpacity onPress={this.onHandlerCreateAccount}>
-                        <View style={{borderRadius: 5, paddingVertical:10,paddingHorizontal:40, backgroundColor:'white'}}>
-                            <Text style={{paddingHorizontal:10, fontSize:16,color:'#ce0b24'}}>Create New Account</Text>
+                        <View style={{ borderRadius: 5, paddingVertical: 10, paddingHorizontal: 40, backgroundColor: 'white' }}>
+                            <Text style={{ paddingHorizontal: 10, fontSize: 16, color: '#ce0b24' }}>Create New Account</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
